@@ -1,14 +1,16 @@
+package br.uepg.deinfo.primeiro;
 
 import javax.swing.JOptionPane;
 
 public class Vetor {
-    private Pessoa vetor[] = new Pessoa[2];
+    private Pessoa vetor[] = new Pessoa[3];
     private int posicao= 0;
-
-    public void inlcuir(){
-        String nome,valor;
+    String nome,valor,code;
         double salario;
         int codigo;
+
+    public void inlcuir(){
+        
 
         JOptionPane.showMessageDialog(null,"Digite as informações:");
         nome  = JOptionPane.showInputDialog(null,"Nome:");
@@ -20,13 +22,18 @@ public class Vetor {
             return;
         }
 
-        valor = JOptionPane.showInputDialog(null,"Codigo:");
-        if(valor==null){
+        code = JOptionPane.showInputDialog(null,"Codigo:");
+        if(code==null){
             return;
         }
+
         salario = Double.parseDouble(valor);
-        vetor[posicao] = new Pessoa(codigo,nome);
+        codigo = Integer.parseInt(code);
+        vetor[posicao] = new Pessoa(salario,codigo,nome);
         vetor[posicao].salario = salario;
         posicao++;
+    }
+    public void Imprimir(){
+       System.out.println("Nome:"+nome+"\nCódigo:"+codigo+"\nSalario:"+salario);
     }
 }

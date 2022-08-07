@@ -6,9 +6,9 @@ public abstract class Livro {
     private  String nome_livro;
     private int ano;
     private int avaliacao;
-    private boolean verificar;
+    
 
-    public Livro(String nome_autor, String nome_livro, int ano, int avaliacao,boolean verificar) {
+    public Livro(String nome_autor, String nome_livro, int ano, int avaliacao) {
         this.nome_autor = nome_autor;
         this.nome_livro = nome_livro;
         this.ano = ano;
@@ -33,9 +33,7 @@ public abstract class Livro {
         return avaliacao;
     }
 
-    public void setVerificar(boolean verificar){
-        this.verificar = verificar;
-    }
+ 
 
     public void setNome_Autor(String nome_autor){
         this.nome_autor = nome_autor;
@@ -54,14 +52,15 @@ public abstract class Livro {
         this.avaliacao= avaliacao;
     }
 
-    public void avaliar(){
+    public void avaliar(int avaliar){
         Scanner resposta = new Scanner(System.in);
         System.out.println("Digite sua avaliação:");
-        resposta.nextInt(avaliacao);
+        resposta.nextInt(avaliar);
+        resposta.close();
     }
 
     public String toString(){
-        String temp = "Nome do autor:"+nome_autor+"\nNome do livro:"+nome_livro+"\nAno de publicação:"+ano+"Avaliação:"+avaliacao+"\n"+verificar;
+        String temp = "Nome do autor:"+nome_autor+"\nNome do livro:"+nome_livro+"\nAno de publicação:"+ano+"\nAvaliação:"+avaliacao;
         return temp;
     }
 

@@ -21,7 +21,7 @@ public class Calculo {
     }
     
 
-    public static void imprimar(int num[]){
+    public static void imprimir(int num[]){
         for(int i=1; i<num.length;i++){
             System.out.println("vetor["+i+"]="+num[i]);
         }

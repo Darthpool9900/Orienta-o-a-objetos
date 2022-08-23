@@ -66,20 +66,23 @@ public abstract class Livro {
     public void avaliar(){
         Scanner resposta = new Scanner(System.in);
         boolean port = true;
+        while(true){
         System.out.println("Digite sua avaliação:");
         String ler =resposta.next();
-        while(true){
         try{
-        avaliacao = Integer.parseInt(ler);
-        port = false;
+            avaliacao = Integer.parseInt(ler);
+            if(avaliacao<10 && avaliacao>0){
+                port = false;
+                return;
+            }else{
+                System.out.println("Inválido");
+            }
+            
         }catch(NumberFormatException e){
             System.out.println("Digite um número");
-            return;
         }
-    }
         
-        
-        
+        }
     }
 
     public String informar(String ver){

@@ -8,7 +8,7 @@ public class Principal {
         System.out.println("---------------------");
         System.out.println(information[0]);
         System.out.println("---------------------");
-        information[1] = new LivroDeLivraria("Eu","PokemonVol-2",2027,0,2000,"Livraria",true);
+        information[1] = new LivroDeLivraria("Eu","PokemonVol-2",2027,0,2000,"Livraria",false);
         ((Livro)information[1]).avaliar();
         ((LivroDeLivraria) information[1]).imprimir();
         System.out.println("---------------------");

@@ -1,5 +1,5 @@
 public interface ItemBiblioteca {
-    void Emprestar_item();
-    void Devolver_item();
+    void Emprestar_item() throws MinhaExcecao;
+    void Devolver_item() throws MinhaExcecao;
     void Verificar_item();
 }

@@ -6,13 +6,16 @@ public abstract class Livro {
     private  String nome_livro;
     private int ano;
     private int avaliacao;
+    private String verificar;
+    
     
 
-    public Livro(String nome_autor, String nome_livro, int ano, int avaliacao) {
+    public Livro(String nome_autor, String nome_livro, int ano, int avaliacao,String verificar) {
         this.nome_autor = nome_autor;
         this.nome_livro = nome_livro;
         this.ano = ano;
         this.avaliacao = avaliacao;
+        this.verificar = verificar;
     }
 
     public abstract boolean getVerificar();
@@ -31,6 +34,10 @@ public abstract class Livro {
 
     public int getAvaliacao(){
         return avaliacao;
+    }
+
+    public String getVer(){
+        return informar(verificar);
     }
 
  
@@ -52,15 +59,44 @@ public abstract class Livro {
         this.avaliacao= avaliacao;
     }
 
-    public void avaliar(int avaliar){
+    public void setVerficar(String verificar){
+        this.verificar = verificar;
+    }
+
+    public void avaliar(){
         Scanner resposta = new Scanner(System.in);
+        boolean port = true;
         System.out.println("Digite sua avaliação:");
-        resposta.nextInt(avaliar);
-        resposta.close();
+        String ler =resposta.next();
+        while(true){
+        try{
+        avaliacao = Integer.parseInt(ler);
+        port = false;
+        }catch(NumberFormatException e){
+            System.out.println("Digite um número");
+            return;
+        }
+    }
+        
+        
+        
+    }
+
+    public String informar(String ver){
+        if(verificar == "Biblioteca"){
+            System.out.println("Livro de biblioteca");
+            ver = "Biblioteca";
+            return ver;
+        }else if(verificar=="Livraria"){
+            System.out.println("Livro de livraria");
+            return ver = "Livraria";
+        }else{
+            return ver = "Erro";
+        }
     }
 
     public String toString(){
-        String temp = "Nome do autor:"+nome_autor+"\nNome do livro:"+nome_livro+"\nAno de publicação:"+ano+"\nAvaliação:"+avaliacao;
+        String temp = "Nome do autor:"+nome_autor+"\nNome do livro:"+nome_livro+"\nAno de publicação:"+ano+"\nAvaliação:"+avaliacao+"\nOrigem:"+verificar;
         return temp;
     }
 

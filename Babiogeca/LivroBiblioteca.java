@@ -2,22 +2,26 @@ public class LivroBiblioteca  extends Livro implements ItemBiblioteca{
     private boolean emprestado;
     private boolean verificar_estado;
 
-    public LivroBiblioteca(String nome_autor, String nome_livro, int ano, int avaliacao,boolean verificar_estado){
-        super(nome_autor, nome_livro, ano,avaliacao);
+    public LivroBiblioteca(String nome_autor, String nome_livro, int ano, int avaliacao,boolean verificar_estado, String verificar){
+        super(nome_autor, nome_livro, ano,avaliacao,verificar);
         this.verificar_estado = verificar_estado;
     }
 
-    public void Emprestar_item(){
-        if (emprestado == false){
-            System.out.println("Emprestado");
+    public void Emprestar_item() throws MinhaExcecao{
+        if (emprestado == true){
+            throw new MinhaExcecao("Livro emprestado");
         }else{
-            System.out.println("Não está emprestado");
+            emprestado = true;
         }
     }
 
-    public void Devolver_item(){
+    public void Devolver_item() throws MinhaExcecao{
+        if(emprestado==false){
+            throw new MinhaExcecao("Livro não está emprestado");
+        }else{
         System.out.println("Devolvido");
         emprestado = false;
+        }
     }
 
     public void Verificar_item(){
